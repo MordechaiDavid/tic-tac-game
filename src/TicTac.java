@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-public class TicTac {
-    JFrame frame = new JFrame();
+public class TicTac extends JFrame {
     JPanel panel = new JPanel();
     JPanel title = new JPanel();
     JPanel buttonPanel = new JPanel();
@@ -14,11 +13,11 @@ public class TicTac {
 
 
     TicTac(){
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 800);
-        frame.getContentPane().setBackground(Color.BLUE);
-        frame.setLayout(new BorderLayout());
-        frame.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(700, 700);
+        this.getContentPane().setBackground(Color.BLUE);
+        this.setLayout(new BorderLayout());
+        this.setVisible(true);
 
         text.setBackground(Color.black);
         text.setForeground(Color.orange);
@@ -44,8 +43,8 @@ public class TicTac {
 
 
         title.add(text);
-        frame.add(title, BorderLayout.NORTH);
-        frame.add(buttonPanel);
+        this.add(title, BorderLayout.NORTH);
+        this.add(buttonPanel);
 
         firstTurn();
 
@@ -184,11 +183,13 @@ public class TicTac {
 
     public void xWon(){
        text.setText("X won");
+        text.setForeground(Color.BLUE);
 
     }
 
     public void oWon(){
         text.setText("O won");
+        text.setForeground(Color.RED);
     }
 
 
