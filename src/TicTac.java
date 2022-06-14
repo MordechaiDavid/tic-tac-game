@@ -3,10 +3,10 @@ import java.awt.*;
 import java.util.Random;
 
 public class TicTac extends JFrame {
-    JPanel panel = new JPanel();
+
+    JLabel text = new JLabel();
     JPanel title = new JPanel();
     JPanel buttonPanel = new JPanel();
-    JLabel text = new JLabel();
     JButton[] buttons = new JButton[9];
     Random random = new Random();
     boolean firstTurn;
@@ -32,12 +32,13 @@ public class TicTac extends JFrame {
         buttonPanel.setLayout(new GridLayout(3,3));
         buttonPanel.setForeground(Color.gray);
 
+        GameActionListiner g = new GameActionListiner(this);
+
         for (int i=0; i<9; i++){
             buttons[i] = new JButton();
             buttonPanel.add(buttons[i]);
             buttons[i].setFont(new Font("Ink Bild", Font.ITALIC, 120));
             buttons[i].setFocusable(false);
-            GameActionListiner g = new GameActionListiner(this);
             buttons[i].addActionListener(g);
         }
 
@@ -46,14 +47,14 @@ public class TicTac extends JFrame {
         this.add(title, BorderLayout.NORTH);
         this.add(buttonPanel);
 
-        firstTurn();
+        initialTurn();
 
     }
 
 
 
 
-    public void firstTurn(){
+    public void initialTurn(){
 
         if (random.nextInt(2)==0){
             firstTurn = true;
@@ -65,7 +66,7 @@ public class TicTac extends JFrame {
 
     }
 
-    public void check(){
+    public void checkWinners(){
         
         if ((buttons[0].getText() == "X")  &&
                 (buttons[1].getText() == "X") &&

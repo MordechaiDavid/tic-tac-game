@@ -17,7 +17,7 @@ public class GameActionListiner implements ActionListener {
                         ticTac.buttons[i].setText("X");
                         ticTac.firstTurn = false;
                         ticTac.text.setText("O turn");
-                        ticTac.check();
+                        ticTac.checkWinners();
                     }
                 }
                 else {
@@ -26,7 +26,7 @@ public class GameActionListiner implements ActionListener {
                         ticTac.buttons[i].setText("O");
                         ticTac.firstTurn = true;
                         ticTac.text.setText("X turn");
-                        ticTac.check();
+                        ticTac.checkWinners();
                     }
 
                 }
